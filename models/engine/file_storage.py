@@ -20,6 +20,13 @@ class FileStorage:
     __file_path = "file.json"
     __objects = {}
 
+    def delete(self, obj=None):
+        """delets obj from db"""
+        if obj is not None:
+            key = "{}.{}".format(type(obj).__name__, obj.id)
+            if key in self.__objects:
+                del self.__objects[key]
+    
     def all(self):
         """returns a dictionary
         Return:
