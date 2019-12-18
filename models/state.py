@@ -1,11 +1,28 @@
 #!/usr/bin/python3
 """This is the state class"""
-from models.base_model import BaseModel
+from models.base_model import BaseModel, Base
+from models.city import City
+from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import scoped_session
+from sqlalchemy.orm import sessionmaker
+import MySQLdb
+from sqlalchemy.orm import relationship, backref
+
+DBSession = scoped_session(sessionmaker())
 
 
-class State(BaseModel):
+class State(BaseModel, Base):
     """This is the class for State
     Attributes:
         name: input name
     """
-    name = ""
+    __tablename__ = "states"
+    name = Column(String(128), nullable=False, primary_key=True)
+    cities = relationship("City", cascade="all,delete", backref='state')
+
+    @property 
+    def cities(self):
+        """getter method"""
+        q = DBSession.query_property()
+        return City.q.filter(state.id == State.id)
