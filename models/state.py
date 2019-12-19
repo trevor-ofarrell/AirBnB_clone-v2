@@ -18,8 +18,8 @@ class State(BaseModel, Base):
         name: input name
     """
     __tablename__ = "states"
-    name = Column(String(128), nullable=False, primary_key=True)
-    cities = relationship("City", cascade="all,delete", backref='state')
+    name = Column(String(128), nullable=False)
+    cities = relationship("City", cascade="all,delete,delete-orphan", backref='state')
 
     @property 
     def cities(self):
