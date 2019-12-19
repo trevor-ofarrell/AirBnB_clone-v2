@@ -49,7 +49,7 @@ class DBStorage():
             my_dict[key] = obj
         return my_dict
 
-    def new (self, obj):
+    def new(self, obj):
         """save new object to DB"""
         self.__session.add(obj)
 
@@ -60,10 +60,11 @@ class DBStorage():
     def delete(self, obj=None):
         """delete object from session"""
         self.__session.delete(obj)
-    
+
     def reload(self):
         """reload"""
         Base.metadata.create_all(self.__engine)
-        self.__session = sessionmaker(bind=self.__engine, expire_on_commit=False)
+        self.__session = sessionmaker(
+            bind=self.__engine, expire_on_commit=False)
         Session = scoped_session(self.__session)
         self.__session = Session()
