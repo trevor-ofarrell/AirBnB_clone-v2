@@ -3,7 +3,7 @@
 import cmd
 from models import storage
 from datetime import datetime
-from models.base_model import BaseModel
+from models.base_model import BaseModel, Base
 from models.user import User
 from models.state import State
 from models.city import City
@@ -47,10 +47,9 @@ class HBNBCommand(cmd.Cmd):
                 obj = eval("{}()".format(my_list[0]))
                 for ele in my_list[1:]:
                     ret = ele.split("=")
-                    print(ret[0], ret[1])
                     setattr(obj, ret[0], ret[1][1:-1])
-                    obj.save()
-            print("{}".format(obj.id))
+                obj.save()
+                print("{}".format(obj.id))
         except SyntaxError:
             print("** class name missing **")
         except NameError:

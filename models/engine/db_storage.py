@@ -23,7 +23,6 @@ class DBStorage():
 
     def __init__(self):
         """init method"""
-        Session = sessionmaker()
         enginestr = "{}://{}:{}@{}:3306/{}".format(
             "mysql+mysqldb",
             getenv("HBNB_MYSQL_USER"),
@@ -31,8 +30,6 @@ class DBStorage():
             getenv("HBNB_MYSQL_HOST"),
             getenv("HBNB_MYSQL_DB"))
         self.__engine = create_engine(enginestr, pool_pre_ping=True)
-        Session.configure(bind=self.__engine)
-        session = Session()
         if getenv("HBNB_ENV") == 'test':
             session.drop_all()
 
@@ -40,18 +37,18 @@ class DBStorage():
         """Show all class objects in DBStorage or specified class if given
         """
         if cls:
-            o = self.__session.query(cls).all()
+            query = self.__session.query(cls).all()
         else:
-            classes = [State, City, User, Place, Review, Amenity]
-            o = []
-        for c in classes:
-            o += self.__session.query(c)
+            classes = [State, City, User, Place]
+            query = []
+        for item in classes:
+            query += self.__session.query(item)
         my_dict = {}
-        for obj in o:
+        for obj in query:
             key = '{}.{}'.format(type(obj).__name__, obj.id)
             my_dict[key] = obj
         return my_dict
-            
+
     def new (self, obj):
         """save new object to DB"""
         self.__session.add(obj)
@@ -62,7 +59,7 @@ class DBStorage():
 
     def delete(self, obj=None):
         """delete object from session"""
-        session.delete(obj)
+        self.__session.delete(obj)
     
     def reload(self):
         """reload"""

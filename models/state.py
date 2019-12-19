@@ -24,5 +24,8 @@ class State(BaseModel, Base):
     @property 
     def cities(self):
         """getter method"""
-        q = DBSession.query_property()
-        return City.q.filter(state.id == State.id)
+        q = []
+        for items in models.storage.all(City):
+            if items.state_id == self.id:
+                q.append(items)
+        return q
