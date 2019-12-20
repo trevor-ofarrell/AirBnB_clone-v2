@@ -28,6 +28,7 @@ The Final Project Scope Is:
 - Updated FileStorage: (models/engine/file_storage.py) with a new public instance method: def delete(self, obj=None): to delete obj from __objects if it’s inside.
 - Updated prototype of def all(self) to def all(self, cls=None) that returns the list of objects of one type of class.
 - SQLAlchemy is our new best friend!
+- Updated BaseModel: (models/base_model.py) to include class attributes: id, created_at, updated_at.
 - 
 
 ### Objectives For The BaseModel Class: A Class that defines all common attributes/methods for other classes:
