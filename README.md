@@ -11,7 +11,7 @@ The Final Project Scope Is:
 - An API that communicates between the front-end and the data (retrieve, create, delete, update)
 
 ---
-## Part 2 (0x02)
+## Part 2 (0x02) Requirements
 - Impliment Unit Testing in a large project
 - Define and use *args and **kwargs
 - Handle named arguments in a function
@@ -21,6 +21,9 @@ The Final Project Scope Is:
 - Map a Python Class to a MySQL table
 - Handle 2 different storage engines with the same codebase
 - Understand and use environment variables
+
+## Part 2 (0x02) Added Functionality
+- 
 
 ### Objectives For The BaseModel Class: A Class that defines all common attributes/methods for other classes:
 
