@@ -32,7 +32,7 @@ class DBStorage():
         self.__engine = create_engine(enginestr, pool_pre_ping=True)
         Base.metadata.create_all(self.__engine)
         if getenv("HBNB_ENV") == 'test':
-            Base.metadata.drop_all()
+            Base.metadata.drop_all(self.__engine)
 
     def all(self, cls=None):
         """Show all class objects in DBStorage or specified class if given
