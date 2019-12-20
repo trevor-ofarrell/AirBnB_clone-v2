@@ -52,8 +52,8 @@ class HBNBCommand(cmd.Cmd):
                     value = value.replace('_', ' ')
                     if hasattr(obj, key):
                         setattr(obj, key, eval(value))
-                obj.save()
-                print("{}".format(obj.id))
+            obj.save()
+            print("{}".format(obj.id))
         except SyntaxError:
             print("** class name missing **")
         except NameError:
