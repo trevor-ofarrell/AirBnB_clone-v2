@@ -39,7 +39,7 @@ class DBStorage():
         if cls:
             query = self.__session.query(cls).all()
         else:
-            classes = [State, City, User, Place]
+            classes = [State, City, User, Place, Review]
             query = []
         for item in classes:
             query += self.__session.query(item)

@@ -27,7 +27,7 @@ class FileStorage:
             if key in self.__objects:
                 del self.__objects[key]
     
-    def all(self):
+    def all(self, cls=None):
         """returns a dictionary
         Return:
             returns a dictionary of __object
