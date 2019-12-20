@@ -30,8 +30,9 @@ class DBStorage():
             getenv("HBNB_MYSQL_HOST"),
             getenv("HBNB_MYSQL_DB"))
         self.__engine = create_engine(enginestr, pool_pre_ping=True)
+        Base.metadata.create_all(self.__engine)
         if getenv("HBNB_ENV") == 'test':
-            self.__session.drop_all()
+            Base.metadata.drop_all()
 
     def all(self, cls=None):
         """Show all class objects in DBStorage or specified class if given
@@ -39,7 +40,7 @@ class DBStorage():
         if cls:
             query = self.__session.query(cls).all()
         else:
-            classes = [State, City, User, Place, Review]
+            classes = [State, City, User, Place, Review, Amenity]
             query = []
         for item in classes:
             query += self.__session.query(item)
