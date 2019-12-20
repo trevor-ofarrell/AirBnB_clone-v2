@@ -31,6 +31,7 @@ The Final Project Scope Is:
 - Updated BaseModel: (models/base_model.py) to include class attributes: id, created_at, updated_at.
 - Moved the models.storage.new(self) from def __init__(self, *args, **kwargs): to def save(self).
 - In def __init__(self, *args, **kwargs):, kwargs can now create an instance attribute from the dictionary. (Ex: kwargs={ 'name': "California" } => self.name = "California")
+- Removed the key _sa_instance_state from the _dict() method of the class BaseModel
 - 
 
 ### Objectives For The BaseModel Class: A Class that defines all common attributes/methods for other classes:
