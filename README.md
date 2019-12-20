@@ -25,6 +25,7 @@ The Final Project Scope Is:
 ## Part 2 (0x02) Added Functionality
 - The def do_create(self, arg): function of the command interpreter (console.py) now allows for object creation with given parameters: Command syntax (create <Class name> <param 1> <param 2> <param 3>...), Param syntax (<key name>=<value>), Value syntax (String: "<value>" => starts with a double quote, Float (<unit>.<decimal> => contains a dot), Integer (<number> => default case).
 - Transition to a new MySQL server (new database hbnb_dev_db, new users with specific privilege requirements).
+- Updated FileStorage: (models/engine/file_storage.py) with a new public instance method: def delete(self, obj=None): to delete obj from __objects if it’s inside.
 - 
 
 ### Objectives For The BaseModel Class: A Class that defines all common attributes/methods for other classes:
