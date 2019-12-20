@@ -35,6 +35,7 @@ The Final Project Scope Is:
 - Added a new public instance method: def delete(self): to delete the current instance from the storage (models.storage) by calling the method delete
 - Updated City: (models/city.py) class attributes: name and state_id
 - Updated State: (models/state.py) for the name class attribute for DBStorage and FileStorage.
+- New engine DBStorage: (models/engine/db_storage.py) with private class attributes (__engine and __session), public instance methods (__init__(self)), dialect: mysql, driver: mysqldb and Environment variables: MySQL user, MySQL password: HBNB_MYSQL_PWD, MySQL host: HBNB_MYSQL_HOST, MySQL database: HBNB_MYSQL_DB.
 - 
 
 ### Objectives For The BaseModel Class: A Class that defines all common attributes/methods for other classes:
