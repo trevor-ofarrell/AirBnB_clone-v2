@@ -31,7 +31,7 @@ class DBStorage():
             getenv("HBNB_MYSQL_DB"))
         self.__engine = create_engine(enginestr, pool_pre_ping=True)
         if getenv("HBNB_ENV") == 'test':
-            session.drop_all()
+            self.__session.drop_all()
 
     def all(self, cls=None):
         """Show all class objects in DBStorage or specified class if given
@@ -59,7 +59,8 @@ class DBStorage():
 
     def delete(self, obj=None):
         """delete object from session"""
-        self.__session.delete(obj)
+        if obj:
+            self.__session.delete(obj)
 
     def reload(self):
         """reload"""
