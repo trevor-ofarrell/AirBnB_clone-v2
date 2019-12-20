@@ -23,6 +23,7 @@ The Final Project Scope Is:
 - Understand and use environment variables
 
 ## Part 2 (0x02) Added Functionality
+- The def do_create(self, arg): function of the command interpreter (console.py) now allows for object creation with given parameters: Command syntax (create <Class name> <param 1> <param 2> <param 3>...), Param syntax (<key name>=<value>), Value syntax (String: "<value>" => starts with a double quote, Float (<unit>.<decimal> => contains a dot), Integer (<number> => default case).
 - 
 
 ### Objectives For The BaseModel Class: A Class that defines all common attributes/methods for other classes:
