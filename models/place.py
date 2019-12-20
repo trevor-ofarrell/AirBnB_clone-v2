@@ -5,6 +5,14 @@ from sqlalchemy.orm import relationship
 from sqlalchemy import Column, String, Integer, Float, ForeignKey, Table
 from os import getenv
 
+place_amenity = Table('place_amenity', Base.metadata,
+                      Column('place_id', String(60),
+                             ForeignKey('places.id'), nullable=False,
+                             primary_key=True),
+                      Column('amenity_id', String(60),
+                             ForeignKey('amenities.id'), nullable=False,
+                             primary_key=True))
+
 
 class Place(BaseModel, Base):
     """This is the class for Place
@@ -33,13 +41,7 @@ class Place(BaseModel, Base):
     price_by_night = Column(Integer, default=0, nullable=False)
     latitude = Column(Float, nullable=True)
     longitude = Column(Float, nullable=True)
-    place_amenity = Table('place_amenity', Base.metadata,
-                          Column('place_id', String(60),
-                                 ForeignKey('places.id'), nullable=False,
-                                 primary_key=True),
-                          Column('amenity_id', String(60),
-                                 ForeignKey('amenities.id'), nullable=False,
-                                 primary_key=True))
+
     if getenv("HBNB_TYPE_STORAGE") == "db":
         amenities = relationship('Amenity',
                                  secondary='place_amenity', viewonly=False)
