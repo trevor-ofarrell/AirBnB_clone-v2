@@ -4,6 +4,8 @@ from models.base_model import BaseModel
 from models.base_model import BaseModel, Base
 from models.city import City
 from sqlalchemy import Column, Integer, String, ForeignKey
+from sqlalchemy.orm import relationship, backref
+
 
 
 class Amenity(BaseModel, Base):
@@ -11,5 +13,7 @@ class Amenity(BaseModel, Base):
     Attributes:
         name: input name
     """
-    __tablename__ = "amenitites"
+    __tablename__ = "amenities"
     name = Column(String(128), nullable=False)
+    place_amenities = relationship("Place", secondary='place_amenity')
+    
