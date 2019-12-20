@@ -32,6 +32,7 @@ The Final Project Scope Is:
 - Moved the models.storage.new(self) from def __init__(self, *args, **kwargs): to def save(self).
 - In def __init__(self, *args, **kwargs):, kwargs can now create an instance attribute from the dictionary. (Ex: kwargs={ 'name': "California" } => self.name = "California")
 - Removed the key _sa_instance_state from the _dict() method of the class BaseModel
+- Added a new public instance method: def delete(self): to delete the current instance from the storage (models.storage) by calling the method delete
 - 
 
 ### Objectives For The BaseModel Class: A Class that defines all common attributes/methods for other classes:
