@@ -29,6 +29,7 @@ The Final Project Scope Is:
 - Updated prototype of def all(self) to def all(self, cls=None) that returns the list of objects of one type of class.
 - SQLAlchemy is our new best friend!
 - Updated BaseModel: (models/base_model.py) to include class attributes: id, created_at, updated_at.
+- Moved the models.storage.new(self) from def __init__(self, *args, **kwargs): to def save(self).
 - 
 
 ### Objectives For The BaseModel Class: A Class that defines all common attributes/methods for other classes:
