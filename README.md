@@ -34,6 +34,7 @@ The Final Project Scope Is:
 - Removed the key _sa_instance_state from the _dict() method of the class BaseModel
 - Added a new public instance method: def delete(self): to delete the current instance from the storage (models.storage) by calling the method delete
 - Updated City: (models/city.py) class attributes: name and state_id
+- Updated State: (models/state.py) for the name class attribute for DBStorage and FileStorage.
 - 
 
 ### Objectives For The BaseModel Class: A Class that defines all common attributes/methods for other classes:
