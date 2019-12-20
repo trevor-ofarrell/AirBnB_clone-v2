@@ -73,4 +73,4 @@ class Place(BaseModel, Base):
         def amenities(self, obj):
             """setter"""
             if type(obj) == 'Amenity':
-                self.amenity_ids.append(obj.id)
+                self.amenity_id.append(obj.id)
