@@ -7,7 +7,6 @@ from sqlalchemy import Column, Integer, String, ForeignKey
 from sqlalchemy.orm import relationship, backref
 
 
-
 class Amenity(BaseModel, Base):
     """This is the class for Amenity
     Attributes:
@@ -16,4 +15,3 @@ class Amenity(BaseModel, Base):
     __tablename__ = "amenities"
     name = Column(String(128), nullable=False)
     place_amenities = relationship("Place", secondary='place_amenity')
-    

@@ -5,6 +5,7 @@ from sqlalchemy.orm import relationship
 from sqlalchemy import Column, String, Integer, Float, ForeignKey, Table
 from os import getenv
 
+
 class Place(BaseModel, Base):
     """This is the class for Place
     Attributes:
@@ -33,12 +34,18 @@ class Place(BaseModel, Base):
     latitude = Column(Float, nullable=True)
     longitude = Column(Float, nullable=True)
     place_amenity = Table('place_amenity', Base.metadata,
-                          Column('place_id', String(60), ForeignKey('places.id'), nullable=False, primary_key=True),
-                          Column('amenity_id', String(60), ForeignKey('amenities.id'), nullable=False, primary_key=True)
-                             )
+                          Column('place_id', String(60),
+                                 ForeignKey('places.id'), nullable=False,
+                                 primary_key=True),
+                          Column('amenity_id', String(60),
+                                 ForeignKey('amenities.id'), nullable=False,
+                                 primary_key=True))
     if getenv("HBNB_TYPE_STORAGE") == "db":
-        amenities = relationship('Amenity', secondary='place_amenity', viewonly=False)
-        reviews = relationship('Review', backref='place', cascade='all,delete,delete-orphan')
+        amenities = relationship('Amenity',
+                                 secondary='place_amenity', viewonly=False)
+        reviews = relationship('Review',
+                               backref='place',
+                               cascade='all,delete,delete-orphan')
     else:
         @property
         def reviews(self):
@@ -57,9 +64,9 @@ class Place(BaseModel, Base):
                 if items.place_id == self.id:
                     l.append(items)
             return l
+
         @amenities.getter
         def amenities(self, obj):
             """setter"""
             if type(obj) == 'Amenity':
                 self.amenity_ids.append(obj.id)
-                
