@@ -27,6 +27,7 @@ The Final Project Scope Is:
 - Transition to a new MySQL server (new database hbnb_dev_db, new users with specific privilege requirements).
 - Updated FileStorage: (models/engine/file_storage.py) with a new public instance method: def delete(self, obj=None): to delete obj from __objects if it’s inside.
 - Updated prototype of def all(self) to def all(self, cls=None) that returns the list of objects of one type of class.
+- SQLAlchemy is our new best friend!
 - 
 
 ### Objectives For The BaseModel Class: A Class that defines all common attributes/methods for other classes:
