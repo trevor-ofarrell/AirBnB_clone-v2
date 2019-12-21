@@ -43,6 +43,7 @@ class Place(BaseModel, Base):
     longitude = Column(Float, nullable=True)
     reviews = relationship('Review', backref='place',
                            cascade='all,delete,delete-orphan')
+    amenity_ids = []
 
     if getenv("HBNB_TYPE_STORAGE") == "db":
         amenities = relationship('Amenity',
@@ -69,8 +70,8 @@ class Place(BaseModel, Base):
                     l.append(items)
             return l
 
-        @amenities.getter
+        @amenities.setter
         def amenities(self, obj):
             """setter"""
             if type(obj) == 'Amenity':
-                self.amenity_id.append(obj.id)
+                self.amenity_ids.append(obj.id)
