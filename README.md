@@ -39,6 +39,7 @@ The Final Project Scope Is:
 - Current database session (self.__session) is created from the engine (self.__engine) by using a sessionmaker.
 - Updated __init__.py: (models/__init__.py)
 - Updated User: (models/user.py)with class attributes: email, password, first_name, last_name, price_by_night, latitude, longitude. Added a relationship with the class Place and Review. 
+- Update Review: (models/review.py) with class attributes: text, place_id, user_id.
 - 
 
 ### Objectives For The BaseModel Class: A Class that defines all common attributes/methods for other classes:
