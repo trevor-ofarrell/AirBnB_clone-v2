@@ -40,7 +40,7 @@ The Final Project Scope Is:
 - Updated __init__.py: (models/__init__.py)
 - Updated User: (models/user.py)with class attributes: email, password, first_name, last_name, price_by_night, latitude, longitude. Added a relationship with the class Place and Review. 
 - Update Review: (models/review.py) with class attributes: text, place_id, user_id.
-- Update Place: (models/place.py) Added a relationship with the class Review and Amenity but also as secondary to place_amenity. Also added an instance of SQLAlchemy Table called place_amenity for creating the relationship Many-To-Many between Place and Amenity (table name place_amenity, metadata = Base.metadata, 2 columns: place_id and amenity_id).
+- Update Place: (models/place.py) Added a relationship with the class Review and Amenity but also as secondary to place_amenity. Also added an instance of SQLAlchemy Table called place_amenity for creating the relationship Many-To-Many between Place and Amenity (table name place_amenity, metadata = Base.metadata, 2 columns: place_id and amenity_id). For FileStorage: Getter attribute amenities that returns the list of Amenity instances based on the attribute amenity_ids that contains all Amenity.id linked to the Place and Setter attribute amenities that handles append method for adding an Amenity.id to the attribute amenity_ids. This method should accept only Amenity object, otherwise, do nothing.
 - 
 
 ### Objectives For The BaseModel Class: A Class that defines all common attributes/methods for other classes:
