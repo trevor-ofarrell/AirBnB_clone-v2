@@ -38,6 +38,7 @@ The Final Project Scope Is:
 - New engine DBStorage: (models/engine/db_storage.py) with private class attributes (__engine and __session), public instance methods (__init__(self)), dialect: mysql, driver: mysqldb and Environment variables: MySQL user, MySQL password: HBNB_MYSQL_PWD, MySQL host: HBNB_MYSQL_HOST, MySQL database: HBNB_MYSQL_DB.
 - Current database session (self.__session) is created from the engine (self.__engine) by using a sessionmaker.
 - Updated __init__.py: (models/__init__.py)
+- Updated User: (models/user.py)with class attributes: email, password, first_name, last_name, price_by_night, latitude, longitude. Added a relationship with the class Place and Review. 
 - 
 
 ### Objectives For The BaseModel Class: A Class that defines all common attributes/methods for other classes:
