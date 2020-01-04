@@ -1,11 +1,18 @@
 #!/usr/bin/env bash
 #script that sets up your web servers for the deployment of web_static
-code="server {
-    location /hbnb_static/ {
+
+code="location /hbnb_static/ {
         alias /data/web_static/current/;
-    }
-}"
-testfile="holberton"
+    }"
+
+testfile="<html>
+  <head>
+  </head>
+  <body>
+    Holberton School
+  </body>
+</html>"
+
 apt-get -y update
 apt-get -y install nginx
 ufw allow 'Nginx HTTP'
