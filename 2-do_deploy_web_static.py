@@ -17,7 +17,7 @@ def do_deploy(archive_path):
         put('versions/archive_path', '/tmp/archive_path')
         run("mkdir -p /data/web_static/releases/{:s}".format(
             new_path))
-        local("tar -xzf /tmp/{:s} -C /data/web_static/releases/{:s}".format(
+        run("tar -xzf /tmp/{:s} -C /data/web_static/releases/{:s}".format(
             archive_path, new_path))
         run("rm /data/web_static/current")
         run(
