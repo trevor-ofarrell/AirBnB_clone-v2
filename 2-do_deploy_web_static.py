@@ -4,9 +4,23 @@ that distributes an archive to your web
 servers, using the function do_deploy"""
 from fabric.api import *
 from os import path
+from datetime import datetime
 
 env.hosts = ['104.196.135.236', '35.237.31.37']
 env.user = 'ubuntu'
+
+
+def do_pack():
+    now = datetime.now()
+    dt_string = now.strftime("%Y%m%d%H%M%S")
+    name = "{}_{}.tgz".format("web_static", dt_string)
+    try:
+        local("mkdir -p versions")
+        local("tar -cvzf {:s} web_static/".format(name))
+        local("mv *.tgz versions")
+        return "{}/{}".format("versions", name)
+    except:
+        return None
 
 
 def do_deploy(archive_path):
