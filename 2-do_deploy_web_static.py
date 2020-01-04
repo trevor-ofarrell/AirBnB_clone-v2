@@ -9,18 +9,21 @@ from os import path
 env.hosts = ['104.196.135.236', '35.237.31.37']
 env.user = 'ubuntu'
 
+
 def do_deploy(archive_path):
     new_path = archive_path.split("/")[1].split(".")[0]
+    ap = new_path = archive_path.split("/")[1]
     if not path.exists(archive_path):
         return False
-    print(new_path)
-    put('versions/archive_path', '/tmp/archive_path')
+    print(ap)
+    put(archive_path, '/tmp/')
     run("mkdir -p /data/web_static/releases/{:s}".format(
         new_path))
     run("tar -xzf /tmp/{:s} -C /data/web_static/releases/{:s}".format(
-        archive_path, new_path))
+        ap, new_path))
     run("rm /data/web_static/current")
-    run("mv /data/web_static/releases/{}/web_static/* /data/web_static/releases/{}"
+    run(
+        "mv /data/web_static/releases/{}/web_static/* /data/web_static/releases/{}"
         .format(new_path, new_path))
     run("rm -rf /data/web_static/releases/{:s}/web_static".format(
         new_path))
