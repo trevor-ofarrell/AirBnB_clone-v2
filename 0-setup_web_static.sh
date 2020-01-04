@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 #script that sets up your web servers for the deployment of web_static
 code="server {
-              location / {
-        root /data/www;
-    }
     location /hbnb_static/ {
         alias /data/web_static/current/;
     }
@@ -18,5 +15,5 @@ touch /data/web_static/releases/test/index.html
 echo $testfile >> /data/web_static/releases/test/index.html
 ln -sfn /data/web_static/releases/test/ /data/web_static/current
 chown -R ubuntu.ubuntu /data/
-echo "$code" >> /etc/nginx/nginx.conf
+echo "$code" >> /etc/nginx/sites-available/default
 service nginx restart
