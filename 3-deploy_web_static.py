@@ -22,6 +22,7 @@ def do_pack():
     except:
         return None
 
+
 def do_deploy(archive_path):
     new_path = archive_path.split("/")[1].split(".")[0]
     ap = new_path.split(".")[0]
@@ -47,6 +48,7 @@ def do_deploy(archive_path):
         return True
     except:
         return False
+
 
 def deploy():
     archive = do_pack()
