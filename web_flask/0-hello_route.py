@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 from flask import Flask
+"""simple flask script"""
 app = Flask(__name__)
+
 
 @app.route('/', strict_slashes=False)
 def hello_world():
