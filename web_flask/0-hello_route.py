@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 from flask import Flask
-"""simple flask script to start an application"""
+"""simple flask script to start an app. """
 app = Flask(__name__)
 
 
