@@ -34,6 +34,10 @@ class DBStorage():
         if getenv("HBNB_ENV") == 'test':
             Base.metadata.drop_all(self.__engine)
 
+    def close(self):
+        """close method"""
+        remove(self.__session)
+
     def all(self, cls=None):
         """Show all class objects in DBStorage or specified class if given
         """
